@@ -42,8 +42,7 @@ var Search = React.createClass({
                     <option value="Motor Vehicle Theft">Motor Vehicle Theft</option>
                 </select>
               </div>
-              <input type="text" className="form-control" id="address" placeholder="Find a location..."
-              value={this.state.value} onChange={this.handleChange} />
+            
               <span className="input-group-btn">
               <span className="glyphicon glyphicon-search" aria-hidden="true"></span>
               </span>

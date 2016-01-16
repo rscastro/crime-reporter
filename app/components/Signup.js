@@ -18,7 +18,8 @@ var Signup = React.createClass({
     e.preventDefault();
     var self = this;
     console.log("Signup called:", this.state.username, this.state.password);
-    helpers.signupUser(this.state.username,this.state.password,function(){
+    helpers.signupUser(this.state.username,this.state.password,function(data){
+      console.log('LOOK HERE', data)
     console.log("self.state.username",self.state.username);
     console.log("self.state.password",self.state.password);
     self.props.loginUser(self.state.username, self.state.password);

@@ -114,6 +114,9 @@ var Login = React.createClass({
     helpers.login(this.state.username,this.state.password);
     this.props.loginUser(this.state.username, this.state.password);
   },
+  change: function(){
+    this.props.changeFunction(true);
+  },
 
   render: function(){
     return(

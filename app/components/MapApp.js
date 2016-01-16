@@ -168,8 +168,8 @@ var MapApp = React.createClass({
 
         <div>
           <h1 className="col-xs-12 col-md-6 col-md-offset-3">My Breadcrumbs</h1>
-      
-
+          <Search onSearch={this.searchForAddress} onFilter={this.filterResults} />
+          
 
           <MapA lat={this.state.mapCoordinates.lat}
             lng={this.state.mapCoordinates.lng}
@@ -180,7 +180,7 @@ var MapApp = React.createClass({
             address={this.state.currentAddress}
             center={this.state.center}
             loginUser={this.loginUser}
-            user={this.state.user}
+            user={this.state.user} 
             filterCategory={this.state.filterCategory} />
 
           <LocationList locations={this.state.favorites}
