@@ -41,7 +41,7 @@ app.use('/api', router);
 
 
 console.log('mapp app on port ' + port);
-app.listen(process.env.PORT);  
+app.listen(port);  
 
 module.exports = app;
 
