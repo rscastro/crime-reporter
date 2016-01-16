@@ -167,9 +167,9 @@ var MapApp = React.createClass({
       return (
 
         <div>
-          <h1 className="col-xs-12 col-md-6 col-md-offset-3">My Breadcrumbs</h1>
+          <h1 className="col-xs-12 col-md-6 col-md-offset-3">Crime Map</h1>
           <Search onSearch={this.searchForAddress} onFilter={this.filterResults} />
-          
+
 
           <MapA lat={this.state.mapCoordinates.lat}
             lng={this.state.mapCoordinates.lng}

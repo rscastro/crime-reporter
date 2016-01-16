@@ -11,7 +11,7 @@ var Main = React.createClass({
         <nav className="navbar navbar-fixed-top navbar-inverse" role="navigation" >
           <div className="col-sm-7 col-sm-offset-2" style={{marginTop: 15}}>
             <div className="container">
-              <div className="navbar-header"><a href="#map" className="navbar-brand" > Breadcrumbs </a></div>
+              <div className="navbar-header"><a href="#map" className="navbar-brand" > Home </a></div>
               <div className="navbar-header"><a href="#Logout" className="navbar-brand">Logout </a></div>
             </div>
           </div>

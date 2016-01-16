@@ -24068,7 +24068,7 @@
 	              React.createElement(
 	                'a',
 	                { href: '#map', className: 'navbar-brand' },
-	                ' Breadcrumbs '
+	                ' Home '
 	              )
 	            ),
 	            React.createElement(
@@ -26028,7 +26028,7 @@
 	        React.createElement(
 	          'h1',
 	          { className: 'col-xs-12 col-md-6 col-md-offset-3' },
-	          'My Breadcrumbs'
+	          'Crime Map'
 	        ),
 	        React.createElement(Search, { onSearch: this.searchForAddress, onFilter: this.filterResults }),
 	        React.createElement(MapA, { lat: this.state.mapCoordinates.lat,
@@ -26565,7 +26565,7 @@
 	        React.createElement(
 	          'div',
 	          null,
-	          React.createElement('input', { type: 'submit', className: 'btn btn-primary', value: 'Save Breadcrumb' })
+	          React.createElement('input', { type: 'submit', className: 'btn btn-primary', value: 'Report Crime' })
 	        )
 	      )
 	    );
