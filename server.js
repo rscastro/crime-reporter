@@ -45,4 +45,4 @@ app.listen(process.env.PORT);
 
 module.exports = app;
 
-mongodb://heroku_t6mr74w2:<dbpassword>@ds047345.mongolab.com:47345/heroku_t6mr74w2
+
