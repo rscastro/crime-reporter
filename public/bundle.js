@@ -25973,37 +25973,6 @@
 
 	    // We will use GMaps' geocode functionality,
 	    // which is built on top of the Google Maps API
-
-	    GMaps.geocode({
-	      address: address,
-	      callback: function callback(results, status) {
-
-	        if (status !== 'OK') return;
-
-	        var latlng = results[0].geometry.location;
-
-	        self.setState({
-	          currentAddress: results[0].formatted_address,
-	          mapCoordinates: {
-	            lat: latlng.lat(),
-	            lng: latlng.lng()
-	          }
-	        });
-
-	        if (recenter) {
-	          self.setState({
-	            center: {
-	              lat: latlng.lat(),
-	              lng: latlng.lng()
-	            }
-	          });
-	        }
-
-	        if (cb) {
-	          cb(results[0].formatted_address);
-	        }
-	      }
-	    });
 	  },
 	  filterResults: function filterResults(e) {
 	    var faves;

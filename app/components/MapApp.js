@@ -112,37 +112,7 @@ var MapApp = React.createClass({
     // We will use GMaps' geocode functionality,
     // which is built on top of the Google Maps API
 
-    GMaps.geocode({
-      address: address,
-      callback: function(results, status) {
-
-        if (status !== 'OK') return;
-
-        var latlng = results[0].geometry.location;
-
-        self.setState({
-          currentAddress: results[0].formatted_address,
-          mapCoordinates: {
-            lat: latlng.lat(),
-            lng: latlng.lng()
-          }
-        });
-
-        if(recenter){
-          self.setState({
-            center: {
-              lat: latlng.lat(),
-              lng: latlng.lng()
-            }
-          });
-        }
-
-        if(cb){
-          cb(results[0].formatted_address);
-        }
-
-      }
-    });
+    
 
   },
 
@@ -169,7 +139,7 @@ var MapApp = React.createClass({
         <div>
           <h1 className="col-xs-12 col-md-6 col-md-offset-3">My Breadcrumbs</h1>
           <Search onSearch={this.searchForAddress} onFilter={this.filterResults} />
-          
+
 
           <MapA lat={this.state.mapCoordinates.lat}
             lng={this.state.mapCoordinates.lng}
