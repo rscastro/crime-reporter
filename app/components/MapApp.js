@@ -179,7 +179,7 @@ var MapApp = React.createClass({
             address={this.state.currentAddress}
             center={this.state.center}
             loginUser={this.loginUser}
-            user={this.state.user} 
+            user={this.state.user}
             filterCategory={this.state.filterCategory} />
 
           <LocationList locations={this.state.favorites}
