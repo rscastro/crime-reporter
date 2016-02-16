@@ -91,6 +91,16 @@ label {
   margin-top: -9px;
 }
 
+.toggleHeatButton {
+  width: auto;
+  margin-bottom: 10px;
+}
+
+#pac-input {
+  width: 60%;
+  margin-top: 10px;
+}
+
 .map-holder {
   max-width: 100%;
   height: 350px;
