@@ -23,7 +23,9 @@ This application was developed/forked from [skepticaltheramin](https://github.co
 
 ## Usage
 
-> For development, run node (or nodemon) "server.js" to begin running the server. From there, it is a good idea to run "webpack --watch" while making changes to the client-side (React.js) code, so that it re-compiles as changes are saved. If you opt not to run "webpack --watch", you will still need to run "webpack" at least once, the first time, to compile the JavaScript into a file that will be called "bundle.js".
+- For development, run node (or nodemon) "server.js" to begin running the server. From there, it is a good idea to run "webpack --watch" while making changes to the client-side (React.js) code, so that it re-compiles as changes are saved. If you opt not to run "webpack --watch", you will still need to run "webpack" at least once, the first time, to compile the JavaScript into a file that will be called "bundle.js".
+
+> You will also need to have Mongo installed. Mongod needs to be running locally. Alternatively, a MongoLab account
 
 ## Requirements
 
@@ -55,8 +57,8 @@ npm install
 
 ### Roadmap
 
-Improve UI
-Create mobile version
+- Improve UI
+- Create mobile version
 
 
 ## Contributing
