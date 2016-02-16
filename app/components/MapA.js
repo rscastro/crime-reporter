@@ -120,6 +120,7 @@ var Map = React.createClass({
         // Only geocodes have viewport.
         bounds.union(place.geometry.viewport);
       } else {
+
         bounds.extend(place.geometry.location);
       }
     });
@@ -177,7 +178,6 @@ var Map = React.createClass({
           }
         });
         markers.push(marker);
-        console.log('createbreadcrumb, markers ', markers)
         google.maps.event.addListener(marker, 'click', function(event) {
 
           self.setState({currentMarker: this});
@@ -280,7 +280,6 @@ var Map = React.createClass({
   toggleHeat() {
     var results = [];
     var self = this;
-    console.log('getpoints')
     self.setState({'filterCategory': self.props.filterCategory});
     helpers.getAllBreadCrumbsForAll(function (data) {
       if (self.state.heatmap) {
@@ -356,7 +355,6 @@ var Map = React.createClass({
       <div>
       <div>
         <input type="button" className="toggleHeatButton" value="Toggle Heat" onClick={this.toggleHeat}></input>
-        <input type="button" className="colorChangeButton" value="Change Color" onClick={this.changeColor}></input>
       </div>
       <div className="map-holder">
         <p>Loading......</p>

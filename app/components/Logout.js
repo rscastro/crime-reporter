@@ -14,7 +14,6 @@ var Logout = React.createClass({
       });
     }
     localStorage.clear();
-    console.log('didmount');
   },
   render: function(){
     return (<div>

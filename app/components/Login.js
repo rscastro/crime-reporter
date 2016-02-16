@@ -13,7 +13,7 @@ var Login = React.createClass({
   componentDidMount: function() {
     window.fbAsyncInit = function() {
       FB.init({
-        appId      : '149080942133417',
+        appId      : '175871752790104',
         cookie     : true,  // enable cookies to allow the server to access
                           // the session
         xfbml      : true,  // parse social plugins on this page
@@ -50,10 +50,7 @@ var Login = React.createClass({
   // successful.  See statusChangeCallback() for when this call is made.
   FBAPI: function() {
     var self = this;
-    console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) {
-      console.log('Successful login username: ', response.name);
-      console.log('Successful login usernid: ', response.id);
       if (response.name && response.id) {
         helpers.signupUser(response.name, response.id, function(data){
         self.props.loginUser(response.name, response.id);
@@ -64,8 +61,6 @@ var Login = React.createClass({
 
   // This is called with the results from from FB.getLoginStatus().
   statusChangeCallback: function(response) {
-    console.log('statusChangeCallback');
-    console.log(response);
     // The response object is returned with a status field that lets the
     // app know the current login status of the person.
     // Full docs on the response object can be found in the documentation
@@ -110,7 +105,6 @@ var Login = React.createClass({
     e.preventDefault();
     var self = this;
     localStorage.setItem('username', this.state.username);
-    console.log("Login called:", this.state.username, this.state.password);
     helpers.login(this.state.username,this.state.password);
     this.props.loginUser(this.state.username, this.state.password);
   },
@@ -122,23 +116,10 @@ var Login = React.createClass({
     return(
       <div>
          <h2>Login</h2>
-         <form  onSubmit={this.login} >
-           <div>
-             <label htmlFor="username">Username:</label>
-             <input onChange={this.handleUsernameChange} value={this.state.username} id="username" type="text" name="username" />
-           </div>
-           <div>
-             <label htmlFor="password">Password:</label>
-             <input onChange={this.handlePasswordChange} value={this.state.password} id="password" type="password" name="password" />
-           </div>
-           <div>
-             <input className="btn btn-primary" type="submit" value="Log In" />
-           </div>
-       </form>
-       <p>
-         <a onClick={this.change}>Sign up for an account &rarr;</a>
-       </p>
-         <img src={'http://i.stack.imgur.com/ZW4QC.png'} alt="facebook login" className="img-responsive" onClick={this.handleClick}/>
+         <img src={'http://i.stack.imgur.com/ZW4QC.png'} alt="facebook login" className="img-responsive facebook-login" onClick={this.handleClick}/>
+         <p>
+           <a onClick={this.change}>Sign up for an account &rarr;</a>
+         </p>
       </div>
 
     )

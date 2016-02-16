@@ -43,9 +43,7 @@ var Search = React.createClass({
                 </select>
               </div>
             
-              <span className="input-group-btn">
-              <span className="glyphicon glyphicon-search" aria-hidden="true"></span>
-              </span>
+          
             </div>
           </div>
         </div>

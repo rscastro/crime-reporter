@@ -167,7 +167,6 @@ var MapApp = React.createClass({
       return (
 
         <div>
-          <h1 className="col-xs-12 col-md-6 col-md-offset-3">Crime Map</h1>
           <Search onSearch={this.searchForAddress} onFilter={this.filterResults} />
 
 
@@ -191,10 +190,8 @@ var MapApp = React.createClass({
 
       );
     } else if (!this.state.loggedin && !this.state.signedupflag) {
-      console.log("go in to else if")
       return <Login loginUser={this.loginUser} changeFunction={this.changeSignedUpFlag}/>
     } else {
-      console.log("go in to else")
       return <Signup loginUser={this.loginUser} changeFunction={this.changeSignedUpFlag}/>
     }
   }

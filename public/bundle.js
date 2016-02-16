@@ -25427,7 +25427,7 @@
 	  componentDidMount: function componentDidMount() {
 	    window.fbAsyncInit = function () {
 	      FB.init({
-	        appId: '149080942133417',
+	        appId: '175871752790104',
 	        cookie: true, // enable cookies to allow the server to access
 	        // the session
 	        xfbml: true, // parse social plugins on this page
@@ -25465,10 +25465,7 @@
 	  // successful.  See statusChangeCallback() for when this call is made.
 	  FBAPI: function FBAPI() {
 	    var self = this;
-	    console.log('Welcome!  Fetching your information.... ');
 	    FB.api('/me', function (response) {
-	      console.log('Successful login username: ', response.name);
-	      console.log('Successful login usernid: ', response.id);
 	      if (response.name && response.id) {
 	        helpers.signupUser(response.name, response.id, function (data) {
 	          self.props.loginUser(response.name, response.id);
@@ -25479,8 +25476,6 @@
 
 	  // This is called with the results from from FB.getLoginStatus().
 	  statusChangeCallback: function statusChangeCallback(response) {
-	    console.log('statusChangeCallback');
-	    console.log(response);
 	    // The response object is returned with a status field that lets the
 	    // app know the current login status of the person.
 	    // Full docs on the response object can be found in the documentation
@@ -25524,7 +25519,6 @@
 	    e.preventDefault();
 	    var self = this;
 	    localStorage.setItem('username', this.state.username);
-	    console.log("Login called:", this.state.username, this.state.password);
 	    helpers.login(this.state.username, this.state.password);
 	    this.props.loginUser(this.state.username, this.state.password);
 	  },
@@ -25541,35 +25535,7 @@
 	        null,
 	        'Login'
 	      ),
-	      React.createElement(
-	        'form',
-	        { onSubmit: this.login },
-	        React.createElement(
-	          'div',
-	          null,
-	          React.createElement(
-	            'label',
-	            { htmlFor: 'username' },
-	            'Username:'
-	          ),
-	          React.createElement('input', { onChange: this.handleUsernameChange, value: this.state.username, id: 'username', type: 'text', name: 'username' })
-	        ),
-	        React.createElement(
-	          'div',
-	          null,
-	          React.createElement(
-	            'label',
-	            { htmlFor: 'password' },
-	            'Password:'
-	          ),
-	          React.createElement('input', { onChange: this.handlePasswordChange, value: this.state.password, id: 'password', type: 'password', name: 'password' })
-	        ),
-	        React.createElement(
-	          'div',
-	          null,
-	          React.createElement('input', { className: 'btn btn-primary', type: 'submit', value: 'Log In' })
-	        )
-	      ),
+	      React.createElement('img', { src: 'http://i.stack.imgur.com/ZW4QC.png', alt: 'facebook login', className: 'img-responsive facebook-login', onClick: this.handleClick }),
 	      React.createElement(
 	        'p',
 	        null,
@@ -25578,8 +25544,7 @@
 	          { onClick: this.change },
 	          'Sign up for an account →'
 	        )
-	      ),
-	      React.createElement('img', { src: 'http://i.stack.imgur.com/ZW4QC.png', alt: 'facebook login', className: 'img-responsive', onClick: this.handleClick })
+	      )
 	    );
 	  }
 	});
@@ -25755,11 +25720,7 @@
 	  signup: function signup(e) {
 	    e.preventDefault();
 	    var self = this;
-	    console.log("Signup called:", this.state.username, this.state.password);
 	    helpers.signupUser(this.state.username, this.state.password, function (data) {
-	      console.log('LOOK HERE', data);
-	      console.log("self.state.username", self.state.username);
-	      console.log("self.state.password", self.state.password);
 	      self.props.loginUser(self.state.username, self.state.password);
 	    });
 	  },
@@ -25840,7 +25801,6 @@
 	      FB.logout(function (response) {});
 	    }
 	    localStorage.clear();
-	    console.log('didmount');
 	  },
 	  render: function render() {
 	    return React.createElement(
@@ -26025,11 +25985,6 @@
 	      return React.createElement(
 	        'div',
 	        null,
-	        React.createElement(
-	          'h1',
-	          { className: 'col-xs-12 col-md-6 col-md-offset-3' },
-	          'Crime Map'
-	        ),
 	        React.createElement(Search, { onSearch: this.searchForAddress, onFilter: this.filterResults }),
 	        React.createElement(MapA, { lat: this.state.mapCoordinates.lat,
 	          lng: this.state.mapCoordinates.lng,
@@ -26047,10 +26002,8 @@
 	          onClick: this.searchForAddress })
 	      );
 	    } else if (!this.state.loggedin && !this.state.signedupflag) {
-	      console.log("go in to else if");
 	      return React.createElement(Login, { loginUser: this.loginUser, changeFunction: this.changeSignedUpFlag });
 	    } else {
-	      console.log("go in to else");
 	      return React.createElement(Signup, { loginUser: this.loginUser, changeFunction: this.changeSignedUpFlag });
 	    }
 	  }
@@ -26148,11 +26101,6 @@
 	                    'Motor Vehicle Theft'
 	                  )
 	                )
-	              ),
-	              React.createElement(
-	                'span',
-	                { className: 'input-group-btn' },
-	                React.createElement('span', { className: 'glyphicon glyphicon-search', 'aria-hidden': 'true' })
 	              )
 	            )
 	          )
@@ -26283,6 +26231,7 @@
 	          // Only geocodes have viewport.
 	          bounds.union(place.geometry.viewport);
 	        } else {
+
 	          bounds.extend(place.geometry.location);
 	        }
 	      });
@@ -26339,7 +26288,6 @@
 	          }
 	        });
 	        markers.push(marker);
-	        console.log('createbreadcrumb, markers ', markers);
 	        google.maps.event.addListener(marker, 'click', function (event) {
 
 	          self.setState({ currentMarker: this });
@@ -26432,7 +26380,6 @@
 	  toggleHeat: function toggleHeat() {
 	    var results = [];
 	    var self = this;
-	    console.log('getpoints');
 	    self.setState({ 'filterCategory': self.props.filterCategory });
 	    helpers.getAllBreadCrumbsForAll(function (data) {
 	      if (self.state.heatmap) {
@@ -26489,8 +26436,7 @@
 	      React.createElement(
 	        'div',
 	        null,
-	        React.createElement('input', { type: 'button', className: 'toggleHeatButton', value: 'Toggle Heat', onClick: this.toggleHeat }),
-	        React.createElement('input', { type: 'button', className: 'colorChangeButton', value: 'Change Color', onClick: this.changeColor })
+	        React.createElement('input', { type: 'button', className: 'toggleHeatButton', value: 'Toggle Heat', onClick: this.toggleHeat })
 	      ),
 	      React.createElement(
 	        'div',

@@ -27,7 +27,6 @@ var Map = React.createClass({
     var breadcrumbs = this.props.favorites;
     for(var i = breadcrumbs.length - 1; i >= 0; i--){
       var breadcrumb = breadcrumbs[i];
-      console.log('LOOK HERE', breadcrumb.timestamp, '+', timestamp)
       if(breadcrumb.timestamp === timestamp){
         this.setState({location: breadcrumb.location, comment: breadcrumb.details.note})
         return;
@@ -91,7 +90,6 @@ var Map = React.createClass({
           });
           var id = self.props.favorites.length;
           var time = Date.now();
-          console.log('HELLO', typeof time, time)
           self.setState({lastMarkerTimeStamp: time});
           var marker = this.addMarker({
             lat: e.latLng.lat(),
@@ -104,11 +102,7 @@ var Map = React.createClass({
               strokeColor: "green",
               scale: 5
             },
-            // infoWindow: {
-            //   content: '<p style="height:200px; width: 800px;">HTML Content </p>'
-            // },
             click: function(e) {
-              //console.log('new marker was clicked')
               self.setState({currentMarker: this});
               self.updateCurrentLocation();
               self.matchBreadCrumb(e.timestamp);
@@ -128,10 +122,6 @@ var Map = React.createClass({
       }]
     });
 
-    console.log("favorites", this.props.favorites);
-    
-
-    // map.addMarkers(this.props.favorites); //no longer used
     helpers.getAllBreadCrumbs(this.props.user, function(data){
       if(!data){
         return;
@@ -150,10 +140,8 @@ var Map = React.createClass({
             scale: 5
           },
           click: function(e) {
-            console.log('marker has been clicked')
             self.setState({currentMarker: this});
             self.updateCurrentLocation();
-            console.log('THIS IS TIMESTAMP: ', e.timestamp, 'ASDASD', e )
             self.matchBreadCrumb(e.timestamp);
             // self.state.currentMarker.setMap(null);
           }
@@ -182,71 +170,6 @@ var Map = React.createClass({
     this.lastLat = this.props.center.lat;
     this.lastLng = this.props.center.lng
 
-    // var map = new GMaps({
-    //   el: '#map',
-    //   lat: this.props.lat,
-    //   lng: this.props.lng,
-    //   click: function(e) {
-    //     var addressString = e.latLng.lat().toString() + " " +  e.latLng.lng().toString();
-    //     // self.searchForAddress(addressString);
-    //     self.props.searchAddress(addressString);
-    //     map.addMarker({
-    //       address: e.latLng.lat().toString() + e.latLng.lng().toString(),
-    //       lat: e.latLng.lat(),
-    //       lng: e.latLng.lng(),
-    //       details: {
-    //         note: "I LOVE this place."
-    //       },
-    //       infoWindow: {
-    //         content: '<p>Dat info dohhh</p>'
-    //       }
-    //     });
-    //     bindContext.addFavBreadCrumb(e.latLng.lat(), e.latLng.lng(), Date.now(), {note: "I LOVE this place."}, {content: '<p>Dat info dohhh</p>'});
-    //   },
-    //   styles: [{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#46bcec"},{"visibility":"on"}]}]
-
-    // });
-
-    // map.setContextMenu({
-    //   control: 'map',
-    //   options: [{
-    //     title: 'Add Bread Crumb',
-    //     name: 'add_bread_crumb',
-    //     action: function(e) {
-    //       var addressString = e.latLng.lat().toString() + " " +  e.latLng.lng().toString();
-    //       console.log("rightclick")
-    //       self.searchAddress(addressString);
-    //       this.addMarker({
-    //         lat: e.latLng.lat(),
-    //         lng: e.latLng.lng(),
-    //         title: 'New marker',
-    //         // infoWindow: {
-    //         //   content: '<p>HTML Content</p>'
-    //         // },
-    //         click: function(e) {
-    //           console.log(e);
-    //         }
-    //       });
-    //     }
-    //   }, {
-    //     title: 'Center here',
-    //     name: 'center_here',
-    //     action: function(e) {
-    //       this.setCenter(e.latLng.lat(), e.latLng.lng());
-    //     }
-    //   }]
-    // });
-
-    // Adding a marker to the location we are showing
-    
-    // map.addMarker({
-    //   lat: this.props.lat,
-    //   lng: this.props.lng
-    //   // icon: '/'
-    // });
-
-    // map.addMarkers(this.props.favorites);
-
   },
 
   handleSubmit(e) {
@@ -254,7 +177,6 @@ var Map = React.createClass({
     var id = this.props.favorites.length;
     var timestamp = this.state.lastMarkerTimeStamp;
     this.addFavBreadCrumb(id, this.props.lat, this.props.lng, timestamp, {note: this.state.comment}, this.state.location);
-    // this.state.currentMarker.setMap(null);
     this.setState({location: '', comment: ''});
   },
 
