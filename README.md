@@ -1,12 +1,15 @@
-# BreadCrumbs
+# Crime Reporter
 
-Your world. Your map. Your breadcrumbs.
+React application where users can report and categorize crimes they encounter on a map interface. Other users can see areas with high criminal activity.
+
+This application was developed/forked from [skepticaltheramin](https://github.com/skepticaltheremin/skepticaltheremin)
 
 ## Team
 
-  - __Product Owner__: Lex
-  - __Scrum Master__: Ian
-  - __Development Team Members__: Mark, Nikola
+  - __Product Owner__: Richard Castro
+  - __Scrum Master__: Hahnbi Sun
+  - __Development Team Members__: Suya Xu, Ian Bulmer
+
 
 ## Table of Contents
 
@@ -52,9 +55,10 @@ npm install
 
 ### Roadmap
 
-Login button does not currently do anything. Sign up workflow can be used with a new or returning username/password combination.
+Improve UI
+Create mobile version
 
 
 ## Contributing
 
-Contact any of the current Breadcrumbs team members (https://github.com/skepticaltheremin/skepticaltheremin) to learn how to get involved in the project!
+Please see the [Contributing](CONTRIBUTING.md)
